@@ -10,7 +10,7 @@ object Players {
     Player("whey_protein", 50)
   )
 
-  def foreach(block: Player => Unit) = all.foreach(block)
+  def foreach(function: Player => Unit) = all.foreach(function)
 
   def bestPlayer = all.maxBy(_.score)
 

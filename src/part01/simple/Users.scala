@@ -10,5 +10,5 @@ object Users {
     new FreeUser("Deuzarina Camurujipe")
   )
 
-  def foreach(block: User => Unit) = all.foreach(block)
+  def foreach(function: User => Unit) = all.foreach(function)
 }
