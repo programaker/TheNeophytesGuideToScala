@@ -1,6 +1,8 @@
-package part01extractors.multivalue
+package part01
 
-object Main extends App {
+import part01.multivalue.{PremiumUser, FreeUser, Users}
+
+object MultipleValuesExtractors extends App {
   Users.forEach { user =>
     val greeting = user match {
       case FreeUser(name, _, upgradeProbability) =>

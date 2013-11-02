@@ -1,6 +1,8 @@
-package part01extractors.simple
+package part01
 
-object Main extends App {
+import part01.simple.{PremiumUser, FreeUser, Users}
+
+object SingleValueExtractors extends App {
   Users.forEach { user =>
     val greeting = user match {
       case FreeUser(name) => s"Hi, $name..."

@@ -1,4 +1,4 @@
-package part01extractors.simple
+package part01.simple
 
 object Users {
   private val allUsers = List(

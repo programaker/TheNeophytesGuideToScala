@@ -1,4 +1,4 @@
-package part01extractors.simple
+package part01.simple
 
 trait User {
   def name: String

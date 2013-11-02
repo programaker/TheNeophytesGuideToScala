@@ -1,6 +1,6 @@
-package part01extractors.infix
+package part01
 
-object Main {
+object InfixOperatorExtractors {
   def sumFirstTwo(s: Stream[Int]) = s match {
     case first #:: second #:: _ => first + second
     case _ => -1

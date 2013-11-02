@@ -1,4 +1,4 @@
-package part01extractors.multivalue
+package part01.multivalue
 
 object Users {
   private val allUsers = List(
