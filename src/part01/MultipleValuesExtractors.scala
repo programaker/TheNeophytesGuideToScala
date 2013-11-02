@@ -3,7 +3,7 @@ package part01
 import part01.multivalue.{PremiumUser, FreeUser, Users}
 
 object MultipleValuesExtractors extends App {
-  Users.forEach { user =>
+  Users.foreach { user =>
     val greeting = user match {
       case FreeUser(name, _, upgradeProbability) =>
         if (upgradeProbability > 0.75)

@@ -1,7 +1,7 @@
 package part01.simple
 
 object Users {
-  private val allUsers = List(
+  private val all = List(
     new FreeUser("Paula Tejano"),
     new FreeUser("Tomas Turbano"),
     new PremiumUser("Marcelo Gomes"),
@@ -10,5 +10,5 @@ object Users {
     new FreeUser("Deuzarina Camurujipe")
   )
 
-  def forEach(block: User => Unit): Unit = allUsers.foreach(block)
+  def foreach(block: User => Unit) = all.foreach(block)
 }
