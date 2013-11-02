@@ -1,7 +1,7 @@
 package part01extractors.simple
 
 object Users {
-  private val allUsers: List[User] = List(
+  private val allUsers = List(
     new FreeUser("Paula Tejano"),
     new FreeUser("Tomas Turbano"),
     new PremiumUser("Marcelo Gomes"),
