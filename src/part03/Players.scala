@@ -16,5 +16,5 @@ object Players {
 
   def scores = all.map(p => (p.name, p.score))
 
-  def bestScore = scores.sortBy { case (_, score) => score }.last
+  def bestScore = scores.sortBy { case (_, score) => score } .last //pattern matching in anonymous function! =D
 }
