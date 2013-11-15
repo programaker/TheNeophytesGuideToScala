@@ -2,9 +2,9 @@ package extra.variancia
 
 object Contravariancia extends App {
 
-  trait TarefaGeral
-  class TarefaFrontEnd extends TarefaGeral
-  class TarefaBackEnd extends TarefaGeral
+  trait Tarefa
+  class TarefaFrontEnd extends Tarefa
+  class TarefaBackEnd extends Tarefa
 
   class Desenvolvedor[-T] {
     def resolveTarefa(tarefa: T): Unit = println("Tá pronto, só falta testar...")
@@ -27,7 +27,7 @@ object Contravariancia extends App {
 
   val desenvolvedorFrontEnd: Desenvolvedor[TarefaFrontEnd] = new Desenvolvedor[TarefaFrontEnd]
   val desenvolvedorBackEnd: Desenvolvedor[TarefaBackEnd] = new Desenvolvedor[TarefaBackEnd]
-  val desenvolvedorGeneralista: Desenvolvedor[TarefaGeral] = new Desenvolvedor[TarefaGeral]
+  val desenvolvedorGeneralista: Desenvolvedor[Tarefa] = new Desenvolvedor[Tarefa]
 
   Gerente.atribuiTarefaFrontEnd(tornarSiteResponsivo, desenvolvedorFrontEnd)
   Gerente.atribuiTarefaBackEnd(otimizarSQL, desenvolvedorBackEnd)
