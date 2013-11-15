@@ -10,6 +10,10 @@ object Invariancia extends App {
     def passageiros: Seq[P] = _passageiros
   }
 
+  object Engarrafamento {
+    def prende(transporte: Transporte[Passageiro]): Unit = println("%$#@* de trânsito!")
+  }
+
   val zeDaSilva: Pobre = new Pobre
   val greycyKelly: Pobre = new Pobre
 
@@ -24,8 +28,7 @@ object Invariancia extends App {
   Rico é Passageiro; Pobre é Passageiro
   mas Transporte[Rico] e Transporte[Pobre] não são Transporte[Passageiro]
   isso é a Invariância! */
-  //val f: Transporte[Passageiro] = ferrari
-  //val o: Transporte[Passageiro] = onibus
-  //val engarrafamento: List[Transporte[Passageiro]] = List(ferrari, onibus)
+  //Engarrafamento.prende(ferrari)
+  //Engarrafamento.prende(onibus)
 
 }

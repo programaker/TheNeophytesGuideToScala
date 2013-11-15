@@ -1,33 +1,33 @@
 package extra.variancia
 
-object Contravariancia {
+object Contravariancia extends App {
 
-  trait Geral
-  class FrontEnd extends Geral
-  class BackEnd extends Geral
+  trait TarefaGeral
+  class TarefaFrontEnd extends TarefaGeral
+  class TarefaBackEnd extends TarefaGeral
 
   class Desenvolvedor[-T] {
     def resolveTarefa(tarefa: T): Unit = println("Tá pronto, só falta testar...")
   }
   
   object Gerente {
-    def atribuiTarefaFrontEnd(tarefaFrontEnd: FrontEnd, desenvolvedorFrontEnd: Desenvolvedor[FrontEnd]) = { 
+    def atribuiTarefaFrontEnd(tarefaFrontEnd: TarefaFrontEnd, desenvolvedorFrontEnd: Desenvolvedor[TarefaFrontEnd]) = {
       desenvolvedorFrontEnd.resolveTarefa(tarefaFrontEnd)
     }
     
-    def atribuiTarefaBackEnd(tarefaBackEnd: BackEnd, desenvolvedorBackEnd: Desenvolvedor[BackEnd]) = {
+    def atribuiTarefaBackEnd(tarefaBackEnd: TarefaBackEnd, desenvolvedorBackEnd: Desenvolvedor[TarefaBackEnd]) = {
       desenvolvedorBackEnd.resolveTarefa(tarefaBackEnd)
     }
   }
 
-  val tornarSiteResponsivo: FrontEnd = new FrontEnd
-  val mexerNoCSS: FrontEnd = new FrontEnd
-  val otimizarSQL: BackEnd = new BackEnd
-  val refatorarControllers: BackEnd = new BackEnd
+  val tornarSiteResponsivo: TarefaFrontEnd = new TarefaFrontEnd
+  val mexerNoCSS: TarefaFrontEnd = new TarefaFrontEnd
+  val otimizarSQL: TarefaBackEnd = new TarefaBackEnd
+  val refatorarControllers: TarefaBackEnd = new TarefaBackEnd
 
-  val desenvolvedorFrontEnd: Desenvolvedor[FrontEnd] = new Desenvolvedor[FrontEnd]
-  val desenvolvedorBackEnd: Desenvolvedor[BackEnd] = new Desenvolvedor[BackEnd]
-  val desenvolvedorGeneralista: Desenvolvedor[Geral] = new Desenvolvedor[Geral]
+  val desenvolvedorFrontEnd: Desenvolvedor[TarefaFrontEnd] = new Desenvolvedor[TarefaFrontEnd]
+  val desenvolvedorBackEnd: Desenvolvedor[TarefaBackEnd] = new Desenvolvedor[TarefaBackEnd]
+  val desenvolvedorGeneralista: Desenvolvedor[TarefaGeral] = new Desenvolvedor[TarefaGeral]
 
   Gerente.atribuiTarefaFrontEnd(tornarSiteResponsivo, desenvolvedorFrontEnd)
   Gerente.atribuiTarefaBackEnd(otimizarSQL, desenvolvedorBackEnd)
