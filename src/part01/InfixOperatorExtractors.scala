@@ -1,6 +1,7 @@
 package part01
 
 object InfixOperatorExtractors {
+  
   def sumFirstTwo(s: Stream[Int]) = s match {
     case first #:: second #:: _ => first + second
     case _ => -1
@@ -19,4 +20,5 @@ object InfixOperatorExtractors {
     println(">>> s4: " + sumFirstTwo(s4))
     println(">>> s5: " + sumFirstTwo(s5))
   }
+
 }

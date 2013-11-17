@@ -1,8 +1,19 @@
 package part02
 
-import part02.firstname.Names
-
 object FirstNameSequenceExtractor {
+  
+  object Names {
+    def unapplySeq(name: String): Option[Seq[String]] = {
+      val nameParts = name.trim.split(" ")
+
+      if (nameParts.forall(_.isEmpty)) {
+        None
+      } else {
+        Some(nameParts)
+      }
+    }
+  }
+  
   def greet(name: String) = name match {
     case Names(firstName, _*) => s"Hello, $firstName!"
     case _ => "Who are you?"
@@ -21,4 +32,5 @@ object FirstNameSequenceExtractor {
     println(">>> " + greet(n4))
     println(">>> " + greet(n5))
   }
+  
 }

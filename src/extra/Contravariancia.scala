@@ -1,4 +1,4 @@
-package extra.variancia
+package extra
 
 object Contravariancia extends App {
 

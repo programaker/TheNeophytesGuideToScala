@@ -1,12 +1,12 @@
-package extra.variancia
+package extra
 
-object Invariancia extends App {
+object Covariancia extends App {
 
   trait Passageiro
   class Pobre extends Passageiro
   class Rico extends Passageiro
 
-  class Transporte[P](_passageiros: P*) {
+  class Transporte[+P](_passageiros: P*) {
     def passageiros: Seq[P] = _passageiros
   }
 
@@ -24,11 +24,11 @@ object Invariancia extends App {
   val ferrari: Transporte[Rico] = new Transporte[Rico](billGates, parisHilton)
   val onibus: Transporte[Pobre] = new Transporte[Pobre](zeDaSilva, greycyKelly)
 
-  /* nem compila!
+  /* agora funciona!
   Rico é Passageiro; Pobre é Passageiro
-  mas Transporte[Rico] e Transporte[Pobre] não são Transporte[Passageiro]
-  isso é a Invariância! */
-  //Engarrafamento.prende(ferrari)
-  //Engarrafamento.prende(onibus)
+  e agora Transporte[Rico] e Transporte[Pobre] são também Transporte[Passageiro]
+  graças à Covariância */
+  Engarrafamento.prende(ferrari)
+  Engarrafamento.prende(onibus)
 
 }
