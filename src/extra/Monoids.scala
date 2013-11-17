@@ -69,5 +69,5 @@ object Monoids extends App {
   println(reduce(strings, stringMonoid))
   println(reduce(ints, intAdditionMonoid))
   println(reduce(ints, intMultiplicationMonoid))
-
+  
 }
