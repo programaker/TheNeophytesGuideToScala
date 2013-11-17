@@ -4,14 +4,14 @@ object Monoids extends App {
 
   trait Monoid[T] {
     def identity: T
-    def append(v1: T, v2: T): T
+    def operate(v1: T, v2: T): T
   }
   
   
   def checkIdentity[T](value: T, monoid: Monoid[T]) = {
     val expected = value
-    val actual1 = monoid.append(value, monoid.identity)
-    val actual2 = monoid.append(monoid.identity, value)
+    val actual1 = monoid.operate(value, monoid.identity)
+    val actual2 = monoid.operate(monoid.identity, value)
     
     val result = if ((expected == actual1) && (expected == actual2)) {
       s">>> Monoid identity working for $value"
@@ -23,8 +23,8 @@ object Monoids extends App {
   }
   
   def checkAssociativity[T](v1: T, v2: T, v3: T, monoid: Monoid[T]) = {
-    val r1 = monoid.append(v1, monoid.append(v2, v3))
-    val r2 = monoid.append(monoid.append(v1, v2), v3)
+    val r1 = monoid.operate(v1, monoid.operate(v2, v3))
+    val r2 = monoid.operate(monoid.operate(v1, v2), v3)
     
     val result = if (r1 == r2) {
       s">>> Monoid associativity working for $v1, $v2, $v3"
@@ -37,23 +37,23 @@ object Monoids extends App {
   
   def reduce[T](list: List[T], monoid: Monoid[T]): T = list match {
     case Nil => monoid.identity
-    case head :: tail => monoid.append(head, reduce(tail, monoid))
+    case head :: tail => monoid.operate(head, reduce(tail, monoid))
   }
   
   
   val stringMonoid = new Monoid[String] {
     def identity: String = ""
-    def append(v1: String, v2: String): String = v1 + v2
+    def operate(v1: String, v2: String): String = v1 + v2
   }
   
   val intAdditionMonoid = new Monoid[Int] {
     def identity: Int = 0
-    def append(v1: Int, v2: Int): Int = v1 + v2
+    def operate(v1: Int, v2: Int): Int = v1 + v2
   }
   
   val intMultiplicationMonoid = new Monoid[Int] {
     def identity: Int = 1
-    def append(v1: Int, v2: Int): Int = v1 * v2
+    def operate(v1: Int, v2: Int): Int = v1 * v2
   }
   
   checkIdentity("frunfles", stringMonoid)
