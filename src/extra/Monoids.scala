@@ -2,9 +2,14 @@ package extra
 
 object Monoids extends App {
 
-  trait Monoid[T] {
-    def identity: T
+  //Semigroups contain the binary associative operation
+  trait Semigroup[T] {
     def append(v1: T, v2: T): T
+  }
+  
+  //Monoids are a Semigroup + identity
+  trait Monoid[T] extends Semigroup[T] {
+    def identity: T
   }
   
   
